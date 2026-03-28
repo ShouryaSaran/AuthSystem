@@ -1,6 +1,13 @@
 import axios from "axios";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://authsystem-production-b97f.up.railway.app/api/v1";
+const normalizeApiBaseUrl = (baseUrl) => {
+  const trimmedUrl = baseUrl.replace(/\/+$/, "");
+  return trimmedUrl.endsWith("/api/v1") ? trimmedUrl : `${trimmedUrl}/api/v1`;
+};
+
+const API_BASE_URL = normalizeApiBaseUrl(
+  import.meta.env.VITE_API_BASE_URL || "https://authsystem-production-b97f.up.railway.app/api/v1"
+);
 
 const api = axios.create({
   baseURL: API_BASE_URL,
