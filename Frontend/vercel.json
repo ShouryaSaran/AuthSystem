@@ -1,0 +1,15 @@
+{
+  "routes": [
+    {
+      "src": "/favicon.ico",
+      "dest": "/user-verification.png"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/index.html"
+    }
+  ]
+}
